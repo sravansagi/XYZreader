@@ -10,5 +10,9 @@
     <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="padding_16_dp">16dp</dimen>
     <dimen name="padding_4_dp">@dimen/padding_16_dp</dimen>
+    <dimen name="fab_dimen">56dp</dimen>
+    <dimen name="detail_image_view">350dp</dimen>
+    <dimen name="background_protection">112dp</dimen>
+    <dimen name="detail_fragment_elevation">2dp</dimen>
 
 </resources>

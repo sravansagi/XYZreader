@@ -23,4 +23,5 @@
     <color name="accent">#FFEB3B</color>
     <color name="ltgray">#ffe0e0e0</color>
     <color name="text_gray">#808080</color>
+    <color name="white">#FFFFFF</color>
 </resources>
