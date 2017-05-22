@@ -20,7 +20,7 @@
 
     <color name="primary">#FF9800</color>
     <color name="primary_dark">#F57C00</color>
-    <color name="accent">#ffff00</color>
+    <color name="accent">#FFEB3B</color>
     <color name="ltgray">#ffe0e0e0</color>
     <color name="text_gray">#808080</color>
 </resources>
