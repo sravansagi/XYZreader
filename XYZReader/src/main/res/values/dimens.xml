@@ -17,5 +17,6 @@
     <dimen name="detail_fragment_elevation">2dp</dimen>
     <dimen name="tool_bar_height">56dp</dimen>
     <dimen name="navigate_up">56dp</dimen>
+    <dimen name="status_bar">24dp</dimen>
 
 </resources>

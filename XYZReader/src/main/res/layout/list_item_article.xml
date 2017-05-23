@@ -23,8 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/photo_placeholder"
-            android:contentDescription="@string/listcontentdesc"
-            android:transitionName="@string/thumbnail"/>
+            android:contentDescription="@string/listcontentdesc" />
 
         <TextView
             android:textStyle="bold"
@@ -38,8 +37,7 @@
             android:textColor="@color/text_gray"
             android:ellipsize="end"
             android:maxLines="4"
-            tools:text="Hello "
-            android:transitionName="@string/articletitle"/>
+            tools:text="Hello " />
 
         <TextView
             android:id="@+id/article_subtitle"
@@ -52,8 +50,7 @@
             android:paddingBottom="@dimen/padding_16_dp"
             android:paddingLeft="@dimen/padding_16_dp"
             android:paddingRight="@dimen/padding_16_dp"
-            android:textColor="@color/text_gray"
-            android:transitionName="@string/article_subtitle"/>
+            android:textColor="@color/text_gray" />
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

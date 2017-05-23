@@ -1,6 +1,5 @@
 package com.example.xyzreader.ui;
 
-import android.app.ActivityOptions;
 import android.app.LoaderManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -11,7 +10,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -19,7 +17,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -155,18 +152,7 @@ public class ArticleListActivity extends AppCompatActivity implements
                 public void onClick(View view) {
                     Intent intent = new Intent(ArticleListActivity.this, ArticleDetailActivity.class);
                     intent.setData(ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
-                    Pair[] pair = new Pair[3];
-                    pair[0] = new Pair<View, String>(imageView, getResources().getString(R.string.thumbnail));
-                    pair[1] = new Pair<View, String>(articleTitle, getResources().getString(R.string.articletitle));
-                    pair[2] = new Pair<View, String>(subTitle, getResources().getString(R.string.article_subtitle));
-
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this,pair);
-                        startActivity(intent,options.toBundle());
-                    }
-                    else {
-                        startActivity(intent);
-                    }
+                    startActivity(intent);
                 }
             });
             return vh;
@@ -203,11 +189,6 @@ public class ArticleListActivity extends AppCompatActivity implements
                         + "<br/>" + " by "
                         + mCursor.getString(ArticleLoader.Query.AUTHOR)));
             }
-
-            /*Glide.with(getApplicationContext())
-                    .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))
-                    .centerCrop()
-                    .into(holder.thumbnailView);*/
 
             holder.thumbnailView.setImageUrl(
                     mCursor.getString(ArticleLoader.Query.THUMB_URL),
