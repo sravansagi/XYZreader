@@ -20,8 +20,6 @@ import android.text.Html;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.Pair;
-import android.util.TypedValue;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -157,8 +155,18 @@ public class ArticleListActivity extends AppCompatActivity implements
                 public void onClick(View view) {
                     Intent intent = new Intent(ArticleListActivity.this, ArticleDetailActivity.class);
                     intent.setData(ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
-                    startActivity(intent);
+                    Pair[] pair = new Pair[3];
+                    pair[0] = new Pair<View, String>(imageView, getResources().getString(R.string.thumbnail));
+                    pair[1] = new Pair<View, String>(articleTitle, getResources().getString(R.string.articletitle));
+                    pair[2] = new Pair<View, String>(subTitle, getResources().getString(R.string.article_subtitle));
 
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this,pair);
+                        startActivity(intent,options.toBundle());
+                    }
+                    else {
+                        startActivity(intent);
+                    }
                 }
             });
             return vh;
@@ -195,6 +203,12 @@ public class ArticleListActivity extends AppCompatActivity implements
                         + "<br/>" + " by "
                         + mCursor.getString(ArticleLoader.Query.AUTHOR)));
             }
+
+            /*Glide.with(getApplicationContext())
+                    .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))
+                    .centerCrop()
+                    .into(holder.thumbnailView);*/
+
             holder.thumbnailView.setImageUrl(
                     mCursor.getString(ArticleLoader.Query.THUMB_URL),
                     ImageLoaderHelper.getInstance(ArticleListActivity.this).getImageLoader());

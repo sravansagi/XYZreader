@@ -10,5 +10,8 @@
     <string name="up">Up</string>
     <string name="listcontentdesc">cardthumbnail</string>
     <string name="detailcontentdesc">cardthumbnail</string>
+    <string name="thumbnail">thumbnail</string>
+    <string name="articletitle">articletitle</string>
+    <string name="article_subtitle">articlesubtitle</string>
 
 </resources>
